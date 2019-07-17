@@ -1,17 +1,19 @@
 import React, {Component} from 'react';
 import uuid from 'uuid';
 
+const stateInicial = {
+    cita: {
+        mascota: '',
+        propietario: '',
+        fecha: '',
+        hora: '',
+        sintomas: ''
+    },
+    error: false
+}
+
 class NuevaCita extends Component{
-    state = {
-        cita: {
-            mascota: '',
-            propietario: '',
-            fecha: '',
-            hora: '',
-            sintomas: ''
-        },
-        error: false
-    }
+    state = { ...stateInicial }
 
     handleChange = e => {
         this.setState({
@@ -39,15 +41,24 @@ class NuevaCita extends Component{
 
         this.props.crearNuevaCita(nuevaCita);
 
+        this.setState({ ...stateInicial });
+
     }
 
     render(){
+
+        const {error} = this.state;
+
         return (
             <div className="card mt-5 py-5">
                 <div className="card-body">
                     <h2 className="card-title text-center mb-5">
                         Llena el formulario para crear una cita.
                     </h2>
+
+                    {error ? <div className="alert alert-danger mt-2 mb-5 text-center"> 
+                    Todos los campos son obligatorios</div> : null}
+
                     <form
                     onSubmit={this.handleSubmit}
                     >
@@ -62,7 +73,7 @@ class NuevaCita extends Component{
                                 placeholder="Nombre Mascota"
                                 name="mascota"
                                 onChange={this.handleChange}
-                                value={this.state.mascota}
+                                value={this.state.cita.mascota}
                                 />
                             </div>
                         </div> {/* form-gruop */}
@@ -78,7 +89,7 @@ class NuevaCita extends Component{
                                 placeholder="Nombre Dueno"
                                 name="propietario"
                                 onChange={this.handleChange}
-                                value={this.state.propietario}
+                                value={this.state.cita.propietario}
                                 />
                             </div>
                         </div> {/* form-gruop */}
@@ -93,7 +104,7 @@ class NuevaCita extends Component{
                                 className="form-control"
                                 name="fecha"
                                 onChange={this.handleChange}
-                                value={this.state.fecha}
+                                value={this.state.cita.fecha}
                                 />
                             </div>
                         
@@ -106,7 +117,7 @@ class NuevaCita extends Component{
                                 className="form-control"
                                 name="hora"
                                 onChange={this.handleChange}
-                                value={this.state.hora}
+                                value={this.state.cita.hora}
                                 />
                             </div>
                         </div> {/* form-gruop */}
@@ -121,7 +132,7 @@ class NuevaCita extends Component{
                                 name="sintomas"
                                 placeholder="Describe los sintomas"
                                 onChange={this.handleChange}
-                                value={this.state.sintomas}
+                                value={this.state.cita.sintomas}
                                 ></textarea>
                             </div>
                         </div> {/* form-gruop */}

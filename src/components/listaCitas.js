@@ -1,5 +1,6 @@
 import React from 'react';
 import Cita from './Cita';
+import PropTypes from 'prop-types';
 
 const listaCitas = ({citas, eliminarCita}) => (
         <div className="card mt-2 py-5">
@@ -19,5 +20,8 @@ const listaCitas = ({citas, eliminarCita}) => (
             </div>
         </div>
     );
-
+listaCitas.propTypes = {
+    citas: PropTypes.array.isRequired,
+    eliminarCita: PropTypes.func.isRequired
+}
 export default listaCitas;

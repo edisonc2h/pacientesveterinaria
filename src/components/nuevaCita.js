@@ -101,7 +101,7 @@ class NuevaCita extends Component{
                             <label className="col-sm-4 col-lg-2 col-form-label">
                                 Fecha
                             </label>
-                            <div className="col-sm-8 col-lg-10">
+                            <div className="col-sm-8 col-lg-4">
                                 <input 
                                 type="date"
                                 className="form-control"

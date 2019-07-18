@@ -72,6 +72,7 @@ class NuevaCita extends Component{
                                 className="form-control"
                                 placeholder="Nombre Mascota"
                                 name="mascota"
+                                autoComplete="off"
                                 onChange={this.handleChange}
                                 value={this.state.cita.mascota}
                                 />
@@ -88,6 +89,7 @@ class NuevaCita extends Component{
                                 className="form-control"
                                 placeholder="Nombre Dueno"
                                 name="propietario"
+                                autoComplete="off"
                                 onChange={this.handleChange}
                                 value={this.state.cita.propietario}
                                 />
@@ -95,10 +97,10 @@ class NuevaCita extends Component{
                         </div> {/* form-gruop */}
 
                         <div className="form-group row">
-                            <label className="col-sm-2 col-lg-2 col-form-label">
+                            <label className="col-sm-4 col-lg-2 col-form-label">
                                 Fecha
                             </label>
-                            <div className="col-sm-8 col-lg-4">
+                            <div className="col-sm-8 col-lg-10">
                                 <input 
                                 type="date"
                                 className="form-control"
